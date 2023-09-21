@@ -1,0 +1,18 @@
+stages:
+  - deploy
+
+services:
+  - docker:dind
+
+deploy:
+  image: alpine
+  stage: deploy
+  before_script:
+    - apk add curl
+  script:
+    - echo ${CI_COMMIT_TAG}
+    - 'curl -v --header "Job-Token: $CI_JOB_TOKEN" --data tag="${CI_COMMIT_TAG}" "https://gitlab.grupopro.dev/api/v4/projects/$CI_PROJECT_ID/packages/composer"'
+  only:
+    - tags
+  tags:
+    - deploy

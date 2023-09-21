@@ -1,0 +1,22 @@
+{
+    "name": "grupopro/sigep",
+    "description": "Faz a implementação das regras de negocio da SIGEP",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "authors": [{
+        "name": "Lucas Silva",
+        "email": "dev.lucassilva@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.4",
+        "ext-soap": "*",
+        "stavarengo/php-sigep-fpdf": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "PhpSigep": "src/"
+        }
+    }
+}
